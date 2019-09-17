@@ -10,18 +10,21 @@ function calculateQuadraticEquation(){
     span.textContent = "х = "+result;
 }
 
-function getResult(a,b,c){
-    let D = b ** 2 - 4 * a * c;
-    let array = [];
-    console.log(D);
-    if (D < 0) {
-        return array;
-    } else if (D == 0) {
-        return array[0] = -b / 2*a;
-    } else {
-        return  array[0] = (-b +- Math.sqrt(D)) / 2 * a;
+    function getResult(a,b,c){
+        let D = b ** 2 - 4 * a * c;
+        let array = [];
+        console.log(D);
+        if (D < 0) {
+            return array;
+        } else if (D == 0) {
+            array.push(-b / (2 * a));
+            return array;
+        } else {
+            array.push((-b - Math.sqrt(D)) / 2 * a);
+            array.push((-b + Math.sqrt(D)) / 2 * a);
+            return  array;
+        }
     }
-}
 
 function calculateAverageRating(){
     let marks = window.marks.value.split("").map(Number).filter((n)=> !isNaN(n) && n > 0);
