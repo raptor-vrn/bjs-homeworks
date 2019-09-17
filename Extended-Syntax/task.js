@@ -1,4 +1,4 @@
-
+'use strict';
 
 function calculateQuadraticEquation(){
     let a = +window.a.value;
@@ -11,8 +11,16 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+    let D = b ** 2 - 4 * a * c;
+    let array = [];
+    console.log(D);
+    if (D < 0) {
+        return array;
+    } else if (D == 0) {
+        return array[0] = -b / 2*a;
+    } else {
+        return  array[0] = (-b +- Math.sqrt(D)) / 2 * a;
+    }
 }
 
 function calculateAverageRating(){
@@ -22,8 +30,15 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    //return averageMark;
+    if (marks.length > 5) {
+        marks.splice(5);
+    }
+    let sum = 0;
+    for (let i = 0; i < marks.length; i++) {
+        sum += marks[i];
+        console.log(sum);
+    }
+    return sum / marks.length;
 }
 
 function calculateDrinkTask(){
