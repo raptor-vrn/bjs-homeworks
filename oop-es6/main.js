@@ -60,46 +60,72 @@ const staffStorm = new LuxWeapon('Посох Бури', 'Посох', 10, 3, 300
 //Task 2
 
 class Hand extends Weapon {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
+    constructor() {
+        super();
+        this.name = 'Рука';
+        this.attack = 1;
+        this.durability = Infinity;
+        this.range = 1;
     }
 }
 class Bow extends Weapon {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
+    constructor() {
+        super();
+        this.name = 'Лук';
+        this.attack = 10;
+        this.durability = 200;
+        this.range = 3;
     }
 }
 class Sword extends Weapon {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
+    constructor() {
+        super ();
+        this.name = 'Меч';
+        this.attack = 10;
+        this.durability = 200;
+        this.range = 3;
     }
 }
 class Knife extends Weapon {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
+    constructor() {
+        super ();
+        this.name = 'Нож';
+        this.attack = 5;
+        this.durability = 300;
+        this.range = 1;
     }
 }
 class Staff extends Weapon {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
+    constructor() {
+        super ();
+        this.name = 'Посох';
+        this.attack = 8;
+        this.durability = 300;
+        this.range = 20;
     }
 }
 
 class LongBow extends Bow {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
-        this.version = version;
+    constructor() {
+        super();
+        this.name = "Длинный лук";
+        this.attack = 15;
+        this.range = 4;
     }
 }
 class Axe extends Sword {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
-        this.version = version;
+    constructor() {
+        super();
+        this.name = "Cекира";
+        this.attack = 27;
+        this.durability = 800;
     }
 }
 class StaffStorm extends Staff {
-    constructor(name, attack, durability, range) {
-        super(name, attack, durability, range);
-        this.version = version;
+    constructor() {
+        super();
+        this.name = "Посох бури";
+        this.attack = 10;
+        this.range = 3;
     }
 }
