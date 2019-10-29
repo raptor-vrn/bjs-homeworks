@@ -72,6 +72,7 @@ class Bow extends Weapon {
         this.attack = 10;
         this.durability = 200;
         this.range = 3;
+        this.startDurability = this.durability;
     }
 }
 class Sword extends Weapon {
@@ -91,6 +92,7 @@ class Knife extends Weapon {
         this.attack = 5;
         this.durability = 300;
         this.range = 1;
+        this.startDurability = this.durability;
     }
 }
 class Staff extends Weapon {
@@ -100,6 +102,7 @@ class Staff extends Weapon {
         this.attack = 8;
         this.durability = 300;
         this.range = 20;
+        this.startDurability = this.durability;
     }
 }
 
