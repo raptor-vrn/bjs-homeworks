@@ -3,16 +3,20 @@
 //Task 1
 
 class Weapon {
-    constructor(name, attack, durability, range) {
+    constructor(name, attack, durability, range, version) {
         this.name = name;
         this.attack = attack;
         this.durability = durability;
         this.range = range;
-        this.startDurability = durability
+        this.version = version;
+        this.startDurability = durability;
+
     }
 
     takeDamage (damage) {
-        if(damage > this.durability){
+        if(damage === Infinity) {
+            return this.durability = Infinity;
+        } else if(damage > this.durability){
             return this.durability = 0;
         }
         this.durability -= damage;
@@ -37,35 +41,28 @@ class Weapon {
     }
 }
 
-class LuxWeapon {
-    constructor(name, version, attack, range, durability) {
-        this.name = name;
-        this.version = version;
-        this.attack = attack;
-        this.range = range;
-        this.durability = durability;
-    }
-}
 
-const hand = new Weapon('Рука', 1, Infinity, 1);
+
+const arm = new Weapon('Рука', 1, Infinity, 1);
 const bow = new Weapon('Лук', 10, 200, 3);
 const sword = new Weapon('Меч', 25, 500, 1);
 const knife = new Weapon('Нож', 5, 300, 1);
 const staff = new Weapon('Посох', 8, 300, 2);
-const longBow = new LuxWeapon('Длинный лук', 'Лук', 15, 3, 200);
-const axe = new LuxWeapon('Секира', 'Меч', 27, 1, 800);
-const staffStorm = new LuxWeapon('Посох Бури', 'Посох', 10, 3, 300);
+const longBow = new Weapon('Длинный лук', 15, 3, 200,'Лук' );
+const axe = new Weapon('Секира', 27, 1, 800, 'Меч');
+const staffStorm = new Weapon('Посох Бури', 10, 3, 300, 'Посох');
 
 
 //Task 2
 
-class Hand extends Weapon {
+class Arm extends Weapon {
     constructor() {
         super();
         this.name = 'Рука';
         this.attack = 1;
         this.durability = Infinity;
         this.range = 1;
+        this.startDurability = Infinity;
     }
 }
 class Bow extends Weapon {
@@ -84,6 +81,7 @@ class Sword extends Weapon {
         this.attack = 10;
         this.durability = 200;
         this.range = 3;
+        this.startDurability = this.durability;
     }
 }
 class Knife extends Weapon {
@@ -108,7 +106,7 @@ class Staff extends Weapon {
 class LongBow extends Bow {
     constructor() {
         super();
-        this.name = "Длинный лук";
+        this.version = "Длинный лук";
         this.attack = 15;
         this.range = 4;
     }
@@ -116,15 +114,16 @@ class LongBow extends Bow {
 class Axe extends Sword {
     constructor() {
         super();
-        this.name = "Cекира";
+        this.version = "Cекира";
         this.attack = 27;
         this.durability = 800;
+        this.startDurability = this.durability;
     }
 }
 class StaffStorm extends Staff {
     constructor() {
         super();
-        this.name = "Посох бури";
+        this.version = "Посох бури";
         this.attack = 10;
         this.range = 3;
     }
