@@ -1,23 +1,29 @@
-'use strict'
-
 const setDailyRhythm = (wakeUpTime, bedTime) => {
-
     const goodMorning = () => alert('Доброе утро!');
     const goodNight = () => alert('Спокойной ночи!');
     const checkMorningTime = setAlarm(wakeUpTime, goodMorning);
     const checkNightTime = setAlarm(bedTime, goodNight);
 
-    setInterval(checkMorningTime, 1000);
-    setInterval(checkNightTime, 1000);
+    const currentTime = () => {
+        const currentDate = new Date();
+        const getCurrentTime = currentDate.toLocaleTimeString('en-GB',  {hour: '2-digit', minute:'2-digit'});
+
+        return getCurrentTime;
+    }
+
+    setInterval(() => {
+        checkMorningTime(currentTime());
+    }, 1000);
+
+    setInterval(() => {
+        checkNightTime(currentTime());
+    }, 1000);
 }
 
 const setAlarm = (time, callback) => {
-    return () => {
-        const currentDate = new Date();
-        const getCurrentTime = currentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
+    return (getCurrentTime) => {
         if (getCurrentTime === time) callback()
     };
 }
 
-setDailyRhythm("07:11", "22:11");
+setDailyRhythm("16:11", "16:12");
