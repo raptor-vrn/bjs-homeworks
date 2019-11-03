@@ -1,30 +1,23 @@
 'use strict'
 
-let date = new Date();
-let hourNow = date.getHours();
-let minNow = date.getMinutes();
-let timeNow = `${hourNow}:${minNow}`;
+const setDailyRhythm = (wakeUpTime, bedTime) => {
 
-function setDailyRhythm(wakeUpTime, bedTime) {
-    if (timeNow === wakeUpTime) {
-        goodMorning();
-    } else if (timeNow === bedTime) {
-        goodNight();
-    }
+    const goodMorning = () => alert('Доброе утро!');
+    const goodNight = () => alert('Спокойной ночи!');
+    const checkMorningTime = setAlarm(wakeUpTime, goodMorning);
+    const checkNightTime = setAlarm(bedTime, goodNight);
+
+    setInterval(checkMorningTime, 1000);
+    setInterval(checkNightTime, 1000);
 }
 
-function setAlarm(time, callback) {
+const setAlarm = (time, callback) => {
+    return () => {
+        const currentDate = new Date();
+        const getCurrentTime = currentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
-    if (timeNow === time) {
-        callback()
-    }
-
+        if (getCurrentTime === time) callback()
+    };
 }
 
-const goodMorning = () => alert('Доброе утро!'),
-    checkTime = setAlarm('20:33', goodMorning);
-
-const goodNight = () => alert('Спокойной ночи!'),
-    checkTime2 = setAlarm('22:30', goodNight);
-
-setDailyRhythm('22:30', '22:33');
+setDailyRhythm("07:11", "22:11");
